@@ -1,0 +1,10 @@
+﻿  Reading Qt configuration (C:/Qt3/6.6.2/msvc2019_64/bin/qmake)
+  moc MainWindow.h
+  moc AddWindow.h
+  AddWindow.cpp
+  MainWindow.cpp
+  main.cpp
+  qrc_MainWindow.cpp
+  moc_MainWindow.cpp
+  moc_AddWindow.cpp
+LINK : fatal error LNK1181: cannot open input file 'QtSql.lib'
