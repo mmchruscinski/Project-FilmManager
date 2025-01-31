@@ -17,7 +17,9 @@ void AddWindow::acceptAddition()
 	QString director_str	= ui.text_director->text();
 	QString date			= ui.text_dates->text();
 	int cat					= FilmOperations::findItem(ui.comboBox->currentText(), "Cathegories");
-	qDebug() << cat;
+	int year				= ui.spinBox->value();
+	int rate				= ui.comboBox_2->currentText().toInt();
+	int saga = 0;
 	int count = 0;
 
 	int director_int = FilmOperations::findAuthor(director_str);
@@ -29,13 +31,13 @@ void AddWindow::acceptAddition()
 		int res = dialog.exec();
 
 		if (res == QMessageBox::Yes) {
-			FilmOperations::addItem(director_str, "Directors");
+			FilmOperations::addItem(director_str, FilmOperations::Database::DIRECTOR);
 			director_int = FilmOperations::findAuthor(director_str);
 			qDebug() << director_int;
 		}
 	}
 	
-	Film currentFilm(title, director_int, date, cat, 0);
+	Film currentFilm(title, director_int, date, cat, 0, saga, year, rate);
 	FilmOperations::addFilm(currentFilm);
 	emit acceptSignal();
 }
@@ -56,4 +58,20 @@ void AddWindow::setWin()
 		QString catName = cats->data(cats->index(i, 0)).toString();
 		ui.comboBox->addItem(catName);
 	}
+
+	//kompleter sago
+	QSqlQueryModel* sagas = new QSqlQueryModel();
+	sagas->setQuery("SELECT SagaName FROM Sagas");
+	QCompleter* sagaComp = new QCompleter(sagas, ui.text_series);
+	sagaComp->setCaseSensitivity(Qt::CaseInsensitive);
+	ui.text_series->setCompleter(sagaComp);
+
+	//definicja combo oceny
+	for (int i = 1; i < 11; i++) {
+		ui.comboBox_2->addItem(QString::number(i));
+	}
+
+	//definicja spinboxa
+	ui.spinBox->setMaximum(2100);
+	ui.spinBox->setValue(2025);
 }

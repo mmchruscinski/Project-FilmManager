@@ -1,4 +1,17 @@
-﻿  FilmOperations.cpp
+﻿  AddWindow.cpp
+  Cathegories.cpp
+  FilmOperations.cpp
+  MainWindow.cpp
+  main.cpp
+C:\MyData\Repos\IT\Project-FilmManager\Project_szablonTest\Project_szablonTest\AddWindow.cpp(1,1): warning C4828: The file contains a character starting at offset 0x2d1 that is illegal in the current source character set (codepage 65001).
+C:\MyData\Repos\IT\Project-FilmManager\Project_szablonTest\Project_szablonTest\AddWindow.cpp(1,1): warning C4828: The file contains a character starting at offset 0x2e5 that is illegal in the current source character set (codepage 65001).
+C:\MyData\Repos\IT\Project-FilmManager\Project_szablonTest\Project_szablonTest\AddWindow.cpp(1,1): warning C4828: The file contains a character starting at offset 0x2f0 that is illegal in the current source character set (codepage 65001).
+C:\MyData\Repos\IT\Project-FilmManager\Project_szablonTest\Project_szablonTest\MainWindow.cpp(1,1): warning C4828: The file contains a character starting at offset 0x418 that is illegal in the current source character set (codepage 65001).
+C:\MyData\Repos\IT\Project-FilmManager\Project_szablonTest\Project_szablonTest\MainWindow.cpp(1,1): warning C4828: The file contains a character starting at offset 0x452 that is illegal in the current source character set (codepage 65001).
+C:\MyData\Repos\IT\Project-FilmManager\Project_szablonTest\Project_szablonTest\MainWindow.cpp(12,20): warning C4101: 'filmhelper': unreferenced local variable
+  moc_AddWindow.cpp
+  moc_Cathegories.cpp
+  moc_MainWindow.cpp
   Project_szablonTest.vcxproj -> C:\MyData\Repos\IT\Project-FilmManager\Project_szablonTest\x64\Debug\Project_szablonTest.exe
   'pwsh.exe' is not recognized as an internal or external command,
   operable program or batch file.

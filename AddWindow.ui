@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>466</width>
-    <height>527</height>
+    <height>596</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -42,10 +42,10 @@
   <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>61</x>
-     <y>51</y>
+     <x>60</x>
+     <y>52</y>
      <width>341</width>
-     <height>351</height>
+     <height>331</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -116,6 +116,20 @@
       </item>
       <item>
        <widget class="QLineEdit" name="text_series"/>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_8">
+      <item>
+       <widget class="QLabel" name="label_7">
+        <property name="text">
+         <string>Rok powstania:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="spinBox"/>
       </item>
      </layout>
     </item>

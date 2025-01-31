@@ -11,6 +11,9 @@ private:
 	int _id;
 	int _cat;
 	int _count;
+	int _rate;
+	int _saga;
+	int _year;
 
 public:
 	Film();
@@ -19,7 +22,10 @@ public:
 		const int director,
 		const QString dates,
 		const int cat,
-		const int count);
+		const int count,
+		const int saga,
+		const int year,
+		const int rate);
 
 	QString getName();
 	int getDirector();
@@ -27,6 +33,9 @@ public:
 	int getId();
 	int getCat();
 	int getCount();
+	int getSaga();
+	int getYear();
+	int getRate();
 
 
 };

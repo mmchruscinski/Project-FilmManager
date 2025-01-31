@@ -16,6 +16,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpinBox>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -45,6 +46,9 @@ public:
     QHBoxLayout *horizontalLayout_6;
     QLabel *label_6;
     QLineEdit *text_series;
+    QHBoxLayout *horizontalLayout_8;
+    QLabel *label_7;
+    QSpinBox *spinBox;
     QHBoxLayout *horizontalLayout_7;
     QLabel *label_5;
     QComboBox *comboBox_2;
@@ -53,7 +57,7 @@ public:
     {
         if (AddWindowClass->objectName().isEmpty())
             AddWindowClass->setObjectName("AddWindowClass");
-        AddWindowClass->resize(466, 527);
+        AddWindowClass->resize(466, 596);
         layoutWidget = new QWidget(AddWindowClass);
         layoutWidget->setObjectName("layoutWidget");
         layoutWidget->setGeometry(QRect(60, 450, 341, 51));
@@ -74,7 +78,7 @@ public:
 
         widget = new QWidget(AddWindowClass);
         widget->setObjectName("widget");
-        widget->setGeometry(QRect(61, 51, 341, 351));
+        widget->setGeometry(QRect(60, 52, 341, 331));
         verticalLayout = new QVBoxLayout(widget);
         verticalLayout->setSpacing(6);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
@@ -160,6 +164,22 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_6);
 
+        horizontalLayout_8 = new QHBoxLayout();
+        horizontalLayout_8->setSpacing(6);
+        horizontalLayout_8->setObjectName("horizontalLayout_8");
+        label_7 = new QLabel(widget);
+        label_7->setObjectName("label_7");
+
+        horizontalLayout_8->addWidget(label_7);
+
+        spinBox = new QSpinBox(widget);
+        spinBox->setObjectName("spinBox");
+
+        horizontalLayout_8->addWidget(spinBox);
+
+
+        verticalLayout->addLayout(horizontalLayout_8);
+
         horizontalLayout_7 = new QHBoxLayout();
         horizontalLayout_7->setSpacing(6);
         horizontalLayout_7->setObjectName("horizontalLayout_7");
@@ -194,6 +214,7 @@ public:
         label_3->setText(QCoreApplication::translate("AddWindowClass", "Kategoria:", nullptr));
         label_4->setText(QCoreApplication::translate("AddWindowClass", "Data Obejrzenia:", nullptr));
         label_6->setText(QCoreApplication::translate("AddWindowClass", "Seria:", nullptr));
+        label_7->setText(QCoreApplication::translate("AddWindowClass", "Rok powstania:", nullptr));
         label_5->setText(QCoreApplication::translate("AddWindowClass", "Ocena:", nullptr));
     } // retranslateUi
 

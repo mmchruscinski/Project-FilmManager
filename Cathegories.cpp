@@ -24,6 +24,6 @@ void Cathegories::setTable()
 
 void Cathegories::addCat()
 {
-	FilmOperations::addItem(ui.lineEdit->text(), "Cathegories");
+	FilmOperations::addItem(ui.lineEdit->text(), FilmOperations::Database::CAT);
 	setTable();
 }
