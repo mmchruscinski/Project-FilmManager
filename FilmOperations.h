@@ -8,15 +8,15 @@
 #include <QtSql/qsqlquery.h>
 #include <vector>
 
-static std::vector<std::vector<QString>> types{ {"Directors",		"Name"},
-										 {"Cathegories",	"Cat"},
-										 {"Sagas",			"SagaName"},
-										 {"Watchings",		"Date"} };
+static std::vector<std::vector<QString>> types{ {"Directors",		"Name",			"DirectorId"},
+												{"Cathegories",		"Cat",			"CatId"},
+												{"Sagas",			"SagaName",		"SagaId"},
+												{"Watchings",		"Date",			"WatchId"} };
 
 class FilmOperations
 {
 public:
-	enum class Database {
+	enum Database {
 		DIRECTOR	= 0,
 		CAT			= 1,
 		SAGA		= 2,
@@ -24,9 +24,9 @@ public:
 	};
 
 	static void addFilm(Film& film);
-	static int findAuthor(const QString director);
-	static int findItem(const QString item, const QString base);
+	static int findItem(const QString item, Database dbt);
 	static void deleteFilm(const int id);
 	static void addItem(const QString item, Database dbt);
+	static QSqlQueryModel* getDates(const int id);
 };
 

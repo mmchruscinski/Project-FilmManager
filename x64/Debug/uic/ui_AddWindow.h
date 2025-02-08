@@ -15,6 +15,7 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QListView>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpinBox>
 #include <QtWidgets/QVBoxLayout>
@@ -29,7 +30,7 @@ public:
     QHBoxLayout *horizontalLayout_5;
     QPushButton *pushButton;
     QPushButton *pushButton_2;
-    QWidget *widget;
+    QWidget *layoutWidget1;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
     QLabel *label;
@@ -52,12 +53,16 @@ public:
     QHBoxLayout *horizontalLayout_7;
     QLabel *label_5;
     QComboBox *comboBox_2;
+    QListView *listView;
+    QLineEdit *lineEdit;
+    QPushButton *buttonDateAdd;
+    QPushButton *pushButton_4;
 
     void setupUi(QWidget *AddWindowClass)
     {
         if (AddWindowClass->objectName().isEmpty())
             AddWindowClass->setObjectName("AddWindowClass");
-        AddWindowClass->resize(466, 596);
+        AddWindowClass->resize(647, 596);
         layoutWidget = new QWidget(AddWindowClass);
         layoutWidget->setObjectName("layoutWidget");
         layoutWidget->setGeometry(QRect(60, 450, 341, 51));
@@ -76,10 +81,10 @@ public:
 
         horizontalLayout_5->addWidget(pushButton_2);
 
-        widget = new QWidget(AddWindowClass);
-        widget->setObjectName("widget");
-        widget->setGeometry(QRect(60, 52, 341, 331));
-        verticalLayout = new QVBoxLayout(widget);
+        layoutWidget1 = new QWidget(AddWindowClass);
+        layoutWidget1->setObjectName("layoutWidget1");
+        layoutWidget1->setGeometry(QRect(60, 52, 341, 331));
+        verticalLayout = new QVBoxLayout(layoutWidget1);
         verticalLayout->setSpacing(6);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
         verticalLayout->setObjectName("verticalLayout");
@@ -87,12 +92,12 @@ public:
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(6);
         horizontalLayout->setObjectName("horizontalLayout");
-        label = new QLabel(widget);
+        label = new QLabel(layoutWidget1);
         label->setObjectName("label");
 
         horizontalLayout->addWidget(label);
 
-        text_title = new QLineEdit(widget);
+        text_title = new QLineEdit(layoutWidget1);
         text_title->setObjectName("text_title");
 
         horizontalLayout->addWidget(text_title);
@@ -103,12 +108,12 @@ public:
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setSpacing(6);
         horizontalLayout_2->setObjectName("horizontalLayout_2");
-        label_2 = new QLabel(widget);
+        label_2 = new QLabel(layoutWidget1);
         label_2->setObjectName("label_2");
 
         horizontalLayout_2->addWidget(label_2);
 
-        text_director = new QLineEdit(widget);
+        text_director = new QLineEdit(layoutWidget1);
         text_director->setObjectName("text_director");
 
         horizontalLayout_2->addWidget(text_director);
@@ -119,12 +124,12 @@ public:
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setSpacing(6);
         horizontalLayout_3->setObjectName("horizontalLayout_3");
-        label_3 = new QLabel(widget);
+        label_3 = new QLabel(layoutWidget1);
         label_3->setObjectName("label_3");
 
         horizontalLayout_3->addWidget(label_3);
 
-        comboBox = new QComboBox(widget);
+        comboBox = new QComboBox(layoutWidget1);
         comboBox->setObjectName("comboBox");
 
         horizontalLayout_3->addWidget(comboBox);
@@ -135,12 +140,12 @@ public:
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setSpacing(6);
         horizontalLayout_4->setObjectName("horizontalLayout_4");
-        label_4 = new QLabel(widget);
+        label_4 = new QLabel(layoutWidget1);
         label_4->setObjectName("label_4");
 
         horizontalLayout_4->addWidget(label_4);
 
-        text_dates = new QLineEdit(widget);
+        text_dates = new QLineEdit(layoutWidget1);
         text_dates->setObjectName("text_dates");
 
         horizontalLayout_4->addWidget(text_dates);
@@ -151,12 +156,12 @@ public:
         horizontalLayout_6 = new QHBoxLayout();
         horizontalLayout_6->setSpacing(6);
         horizontalLayout_6->setObjectName("horizontalLayout_6");
-        label_6 = new QLabel(widget);
+        label_6 = new QLabel(layoutWidget1);
         label_6->setObjectName("label_6");
 
         horizontalLayout_6->addWidget(label_6);
 
-        text_series = new QLineEdit(widget);
+        text_series = new QLineEdit(layoutWidget1);
         text_series->setObjectName("text_series");
 
         horizontalLayout_6->addWidget(text_series);
@@ -167,12 +172,12 @@ public:
         horizontalLayout_8 = new QHBoxLayout();
         horizontalLayout_8->setSpacing(6);
         horizontalLayout_8->setObjectName("horizontalLayout_8");
-        label_7 = new QLabel(widget);
+        label_7 = new QLabel(layoutWidget1);
         label_7->setObjectName("label_7");
 
         horizontalLayout_8->addWidget(label_7);
 
-        spinBox = new QSpinBox(widget);
+        spinBox = new QSpinBox(layoutWidget1);
         spinBox->setObjectName("spinBox");
 
         horizontalLayout_8->addWidget(spinBox);
@@ -183,12 +188,12 @@ public:
         horizontalLayout_7 = new QHBoxLayout();
         horizontalLayout_7->setSpacing(6);
         horizontalLayout_7->setObjectName("horizontalLayout_7");
-        label_5 = new QLabel(widget);
+        label_5 = new QLabel(layoutWidget1);
         label_5->setObjectName("label_5");
 
         horizontalLayout_7->addWidget(label_5);
 
-        comboBox_2 = new QComboBox(widget);
+        comboBox_2 = new QComboBox(layoutWidget1);
         comboBox_2->setObjectName("comboBox_2");
 
         horizontalLayout_7->addWidget(comboBox_2);
@@ -196,6 +201,18 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_7);
 
+        listView = new QListView(AddWindowClass);
+        listView->setObjectName("listView");
+        listView->setGeometry(QRect(420, 50, 211, 261));
+        lineEdit = new QLineEdit(AddWindowClass);
+        lineEdit->setObjectName("lineEdit");
+        lineEdit->setGeometry(QRect(420, 320, 211, 24));
+        buttonDateAdd = new QPushButton(AddWindowClass);
+        buttonDateAdd->setObjectName("buttonDateAdd");
+        buttonDateAdd->setGeometry(QRect(420, 350, 211, 24));
+        pushButton_4 = new QPushButton(AddWindowClass);
+        pushButton_4->setObjectName("pushButton_4");
+        pushButton_4->setGeometry(QRect(420, 380, 211, 24));
 
         retranslateUi(AddWindowClass);
         QObject::connect(pushButton_2, &QPushButton::clicked, AddWindowClass, qOverload<>(&QWidget::close));
@@ -216,6 +233,8 @@ public:
         label_6->setText(QCoreApplication::translate("AddWindowClass", "Seria:", nullptr));
         label_7->setText(QCoreApplication::translate("AddWindowClass", "Rok powstania:", nullptr));
         label_5->setText(QCoreApplication::translate("AddWindowClass", "Ocena:", nullptr));
+        buttonDateAdd->setText(QCoreApplication::translate("AddWindowClass", "Dodaj objerzenie", nullptr));
+        pushButton_4->setText(QCoreApplication::translate("AddWindowClass", "Usu\305\204 obejrzenie", nullptr));
     } // retranslateUi
 
 };

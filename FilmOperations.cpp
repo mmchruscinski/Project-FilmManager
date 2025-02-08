@@ -15,7 +15,6 @@ void FilmOperations::addFilm(Film& film)
 	add.bindValue(":SagaId", 		film.getSaga());
 	add.bindValue(":Year",			film.getYear());
 	add.bindValue(":Rate",			film.getRate());
-
 	add.finish();
 
 	if (add.exec()) {
@@ -26,17 +25,11 @@ void FilmOperations::addFilm(Film& film)
 	}
 }
 
-int FilmOperations::findAuthor(const QString director)
+int FilmOperations::findItem(const QString item, Database dbt)
 {
-	QSqlQueryModel author;
-	author.setQuery("SELECT DirectorId FROM Directors WHERE Name = '" + director + "'");
-	return author.data(author.index(0, 0)).toInt();;
-}
-
-int FilmOperations::findItem(const QString item, const QString base)
-{
+	int index = static_cast<int>(dbt);
 	QSqlQueryModel itemModel;
-	itemModel.setQuery("SELECT CatId FROM " + base + " WHERE Cat = '" + item + "'");
+	itemModel.setQuery("SELECT " + types[index][2] + " FROM " + types[index][0] + " WHERE " + types[index][1] + " = '" + item + "'");
 	return itemModel.data(itemModel.index(0, 0)).toInt();
 }
 
@@ -54,10 +47,21 @@ void FilmOperations::deleteFilm(const int id)
 void FilmOperations::addItem(const QString item, Database dbt)
 {
 	int index = static_cast<int>(dbt);
-
 	QSqlQuery add;
 	add.prepare("INSERT INTO " + types[index][0] + " (" + types[index][1] + ")VALUES(:Cat)");
 	add.bindValue(":Cat", item);
 	add.finish();
 	add.exec();
+}
+
+QSqlQueryModel* FilmOperations::getDates(const int id)
+{
+	QSqlQueryModel* dates = new QSqlQueryModel();
+	dates->setQuery("SELECT Date FROM Watchings WHERE FilmId = '" + QString::number(id) + "'");
+
+	if (dates->lastError().isValid()) {  // Check for errors
+		qDebug() << "Query Error:" << dates->lastError().text();
+	}
+
+	return dates;
 }

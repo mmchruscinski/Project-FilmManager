@@ -16,13 +16,13 @@ void AddWindow::acceptAddition()
 	QString title			= ui.text_title->text();
 	QString director_str	= ui.text_director->text();
 	QString date			= ui.text_dates->text();
-	int cat					= FilmOperations::findItem(ui.comboBox->currentText(), "Cathegories");
+	QString saga_str		= ui.text_series->text();
+	int cat					= FilmOperations::findItem(ui.comboBox->currentText(), FilmOperations::CAT);
 	int year				= ui.spinBox->value();
 	int rate				= ui.comboBox_2->currentText().toInt();
-	int saga = 0;
 	int count = 0;
 
-	int director_int = FilmOperations::findAuthor(director_str);
+	int director_int = FilmOperations::findItem(director_str, FilmOperations::DIRECTOR);
 	if (director_int == 0) {
 		QMessageBox dialog;
 		dialog.setText("Nie znaleziono wpisanego re¿ysera w bazie. Dodaæ nowego re¿ysera?");
@@ -31,13 +31,39 @@ void AddWindow::acceptAddition()
 		int res = dialog.exec();
 
 		if (res == QMessageBox::Yes) {
-			FilmOperations::addItem(director_str, FilmOperations::Database::DIRECTOR);
-			director_int = FilmOperations::findAuthor(director_str);
-			qDebug() << director_int;
+			FilmOperations::addItem(director_str, FilmOperations::DIRECTOR);
+			director_int = FilmOperations::findItem(director_str, FilmOperations::DIRECTOR);
+		}
+		else {
+			QMessageBox anon;
+			anon.setText("Nie dodano pozycji.");
+			anon.setStandardButtons(QMessageBox::Ok);
+			anon.exec();
+			return;
+		}
+	}
+
+	int saga_int = FilmOperations::findItem(saga_str, FilmOperations::SAGA);
+	if (saga_int == 0) {
+		QMessageBox dialogSaga;
+		dialogSaga.setText("Nie znaleziono serii w bazie. Doda?");
+		dialogSaga.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+		dialogSaga.setDefaultButton(QMessageBox::Yes);
+		int res2 = dialogSaga.exec();
+
+		if (res2 == QMessageBox::Yes) {
+			FilmOperations::addItem(saga_str, FilmOperations::SAGA);
+			saga_int = FilmOperations::findItem(saga_str, FilmOperations::SAGA);
+		} else {
+			QMessageBox anon;
+			anon.setText("Nie dodano pozycji.");
+			anon.setStandardButtons(QMessageBox::Ok);
+			anon.exec();
+			return;
 		}
 	}
 	
-	Film currentFilm(title, director_int, date, cat, 0, saga, year, rate);
+	Film currentFilm(title, director_int, date, cat, 0, saga_int, year, rate);
 	FilmOperations::addFilm(currentFilm);
 	emit acceptSignal();
 }
@@ -59,7 +85,7 @@ void AddWindow::setWin()
 		ui.comboBox->addItem(catName);
 	}
 
-	//kompleter sago
+	//kompleter sagi
 	QSqlQueryModel* sagas = new QSqlQueryModel();
 	sagas->setQuery("SELECT SagaName FROM Sagas");
 	QCompleter* sagaComp = new QCompleter(sagas, ui.text_series);

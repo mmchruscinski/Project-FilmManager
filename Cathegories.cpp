@@ -21,9 +21,8 @@ void Cathegories::setTable()
 }
 
 //public slots
-
 void Cathegories::addCat()
 {
-	FilmOperations::addItem(ui.lineEdit->text(), FilmOperations::Database::CAT);
+	FilmOperations::addItem(ui.lineEdit->text(), FilmOperations::CAT);
 	setTable();
 }

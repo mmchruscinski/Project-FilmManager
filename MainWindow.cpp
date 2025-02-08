@@ -54,8 +54,14 @@ void MainWindow::setTable()
     ui.tableView->setColumnWidth(4, 101);
     ui.tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Fixed);
     
-    //ui.tableView->show();
     qDebug() << "set the table";
+}
+
+void MainWindow::setStats(int id)
+{
+    QSqlQueryModel* model = FilmOperations::getDates(id);
+    ui.listView->setModel(model);
+    ui.listView->show();
 }
 
 //Public slots
@@ -79,6 +85,7 @@ void MainWindow::selectId(const QModelIndex &index)
     QModelIndex sourceIndex = proxymodel->mapToSource(sortedIndex);
     selectedID = sourceIndex.data().toInt();
     qDebug() << selectedID;
+    setStats(selectedID);
 }
 
 void MainWindow::deleteFilm()

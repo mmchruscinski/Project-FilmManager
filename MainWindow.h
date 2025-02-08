@@ -28,6 +28,8 @@ public:
 
     void setTable();
 
+    void setStats(int id);
+
 private:
     Ui::MainWindowClass ui;
     QSqlDatabase mydb;
