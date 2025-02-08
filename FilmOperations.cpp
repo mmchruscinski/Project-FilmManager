@@ -25,6 +25,22 @@ void FilmOperations::addFilm(Film& film)
 	}
 }
 
+void FilmOperations::addDate(QString date, int id)
+{
+	QSqlQuery add;
+	add.prepare("INSERT INTO Watchings (Date, FilmId) Values (:Date, :FilmId)");
+	add.bindValue(":Date", date);
+	add.bindValue(":FilmId", id);
+	add.finish();
+
+	if (add.exec()) {
+		qDebug() << "Record inserted successfully";
+	}
+	else {
+		qDebug() << "Error: " << add.lastError().text();
+	}
+}
+
 int FilmOperations::findItem(const QString item, Database dbt)
 {
 	int index = static_cast<int>(dbt);
@@ -33,15 +49,11 @@ int FilmOperations::findItem(const QString item, Database dbt)
 	return itemModel.data(itemModel.index(0, 0)).toInt();
 }
 
-void FilmOperations::deleteFilm(const int id)
+void FilmOperations::deleteItem(const int id, Database dbt)
 {
-	QSqlQuery del;
-	del.prepare("DELETE FROM Films WHERE FilmId = :ID");
-	del.bindValue(":ID", id);
-	del.finish();
-
-	if (del.exec()) { qDebug() << "Record deleted successfully"; }
-	else { qDebug() << "Error: " << del.lastError().text(); }
+	int index = static_cast<int>(dbt);
+	QSqlQueryModel del;
+	del.setQuery("DELETE FROM " + types[index][0] + " WHERE " + types[index][2] + " = " + QString::number(id));
 }
 
 void FilmOperations::addItem(const QString item, Database dbt)
@@ -59,9 +71,19 @@ QSqlQueryModel* FilmOperations::getDates(const int id)
 	QSqlQueryModel* dates = new QSqlQueryModel();
 	dates->setQuery("SELECT Date FROM Watchings WHERE FilmId = '" + QString::number(id) + "'");
 
-	if (dates->lastError().isValid()) {  // Check for errors
+	if (dates->lastError().isValid()) {
 		qDebug() << "Query Error:" << dates->lastError().text();
 	}
 
 	return dates;
+}
+
+int FilmOperations::emptyFilm()
+{
+	QSqlQuery query;
+	query.prepare("INSERT INTO Films (Title, DirectorId, CatId, Count, Dates, SagaId, Year, Rate)\
+				   VALUES (NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)");
+	query.finish();
+	query.exec();
+	return 0;
 }

@@ -112,6 +112,7 @@
     <QtMoc Include="MainWindow.h" />
     <ClCompile Include="AddWindow.cpp" />
     <ClCompile Include="Cathegories.cpp" />
+    <ClCompile Include="colordelegate.cpp" />
     <ClCompile Include="Film.cpp" />
     <ClCompile Include="FilmOperations.cpp" />
     <ClCompile Include="MainWindow.cpp" />
@@ -123,6 +124,7 @@
     <QtMoc Include="AddWindow.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="colordelegate.h" />
     <QtMoc Include="Cathegories.h" />
     <ClInclude Include="Film.h" />
     <ClInclude Include="FilmOperations.h" />

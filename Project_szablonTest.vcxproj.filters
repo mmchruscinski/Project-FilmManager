@@ -58,6 +58,9 @@
     <ClCompile Include="Cathegories.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="colordelegate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="AddWindow.h">
@@ -80,6 +83,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Film.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="colordelegate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -14,6 +14,7 @@
 #include <qcompleter.h>
 #include <QCompleter>
 #include <Cathegories.h>
+#include <colordelegate.h>
 
 class MainWindow : public QWidget
 {
@@ -46,4 +47,5 @@ public slots:
 
     void deleteFilm();
 
+    void addWatching();
 };

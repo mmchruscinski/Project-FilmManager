@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>647</width>
+    <width>453</width>
     <height>596</height>
    </rect>
   </property>
@@ -148,52 +148,6 @@
      </layout>
     </item>
    </layout>
-  </widget>
-  <widget class="QListView" name="listView">
-   <property name="geometry">
-    <rect>
-     <x>420</x>
-     <y>50</y>
-     <width>211</width>
-     <height>261</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit">
-   <property name="geometry">
-    <rect>
-     <x>420</x>
-     <y>320</y>
-     <width>211</width>
-     <height>24</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="buttonDateAdd">
-   <property name="geometry">
-    <rect>
-     <x>420</x>
-     <y>350</y>
-     <width>211</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Dodaj objerzenie</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_4">
-   <property name="geometry">
-    <rect>
-     <x>420</x>
-     <y>380</y>
-     <width>211</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Usuń obejrzenie</string>
-   </property>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

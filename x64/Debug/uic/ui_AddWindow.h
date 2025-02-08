@@ -15,7 +15,6 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
-#include <QtWidgets/QListView>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpinBox>
 #include <QtWidgets/QVBoxLayout>
@@ -53,16 +52,12 @@ public:
     QHBoxLayout *horizontalLayout_7;
     QLabel *label_5;
     QComboBox *comboBox_2;
-    QListView *listView;
-    QLineEdit *lineEdit;
-    QPushButton *buttonDateAdd;
-    QPushButton *pushButton_4;
 
     void setupUi(QWidget *AddWindowClass)
     {
         if (AddWindowClass->objectName().isEmpty())
             AddWindowClass->setObjectName("AddWindowClass");
-        AddWindowClass->resize(647, 596);
+        AddWindowClass->resize(453, 596);
         layoutWidget = new QWidget(AddWindowClass);
         layoutWidget->setObjectName("layoutWidget");
         layoutWidget->setGeometry(QRect(60, 450, 341, 51));
@@ -201,18 +196,6 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_7);
 
-        listView = new QListView(AddWindowClass);
-        listView->setObjectName("listView");
-        listView->setGeometry(QRect(420, 50, 211, 261));
-        lineEdit = new QLineEdit(AddWindowClass);
-        lineEdit->setObjectName("lineEdit");
-        lineEdit->setGeometry(QRect(420, 320, 211, 24));
-        buttonDateAdd = new QPushButton(AddWindowClass);
-        buttonDateAdd->setObjectName("buttonDateAdd");
-        buttonDateAdd->setGeometry(QRect(420, 350, 211, 24));
-        pushButton_4 = new QPushButton(AddWindowClass);
-        pushButton_4->setObjectName("pushButton_4");
-        pushButton_4->setGeometry(QRect(420, 380, 211, 24));
 
         retranslateUi(AddWindowClass);
         QObject::connect(pushButton_2, &QPushButton::clicked, AddWindowClass, qOverload<>(&QWidget::close));
@@ -233,8 +216,6 @@ public:
         label_6->setText(QCoreApplication::translate("AddWindowClass", "Seria:", nullptr));
         label_7->setText(QCoreApplication::translate("AddWindowClass", "Rok powstania:", nullptr));
         label_5->setText(QCoreApplication::translate("AddWindowClass", "Ocena:", nullptr));
-        buttonDateAdd->setText(QCoreApplication::translate("AddWindowClass", "Dodaj objerzenie", nullptr));
-        pushButton_4->setText(QCoreApplication::translate("AddWindowClass", "Usu\305\204 obejrzenie", nullptr));
     } // retranslateUi
 
 };

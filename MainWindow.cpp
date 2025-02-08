@@ -31,7 +31,7 @@ void MainWindow::setDatabase()
 void MainWindow::setTable()
 {
     modelFilms->setQuery(
-        "SELECT FilmId, Title, Name, Cat, Dates FROM Films\
+        "SELECT FilmId, Title, Name, Cat, Year FROM Films\
         INNER JOIN Directors ON Films.DirectorID = Directors.DirectorId\
         INNER JOIN Cathegories ON Films.CatId = Cathegories.CatId"
     );
@@ -42,7 +42,7 @@ void MainWindow::setTable()
     modelFilms->setHeaderData(1, Qt::Horizontal, "Tytu³");
     modelFilms->setHeaderData(2, Qt::Horizontal, "Re¿yser");
     modelFilms->setHeaderData(3, Qt::Horizontal, "Kategoria");
-    modelFilms->setHeaderData(4, Qt::Horizontal, "Obejrzenia");
+    modelFilms->setHeaderData(4, Qt::Horizontal, "Rok");
 
     proxymodel->setSourceModel(modelFilms);
     ui.tableView->setModel(proxymodel);
@@ -51,10 +51,11 @@ void MainWindow::setTable()
     ui.tableView->setColumnWidth(1, 250);
     ui.tableView->setColumnWidth(2, 200);
     ui.tableView->setColumnWidth(3, 130);
-    ui.tableView->setColumnWidth(4, 101);
+    ui.tableView->setColumnWidth(4, 95);
     ui.tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Fixed);
     
-    qDebug() << "set the table";
+    //colordelegate* delegate = new colordelegate(ui.tableView);
+    //ui.tableView->setItemDelegate(delegate);
 }
 
 void MainWindow::setStats(int id)
@@ -90,6 +91,12 @@ void MainWindow::selectId(const QModelIndex &index)
 
 void MainWindow::deleteFilm()
 {
-    FilmOperations::deleteFilm(selectedID);
+    FilmOperations::deleteItem(selectedID, FilmOperations::FILM);
     setTable();
+}
+
+void MainWindow::addWatching()
+{
+    FilmOperations::addDate(ui.line_date->text(), selectedID);
+    setStats(selectedID);
 }
